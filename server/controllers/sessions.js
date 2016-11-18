@@ -18,7 +18,7 @@ module.exports = {
                     res.json(err);
                 }else{
                     req.session.user = {
-                        name: user.name,
+                        first_name: user.first_name,
                         _id: user._id
                     };
                     req.session.userId = user._id;
@@ -35,6 +35,10 @@ module.exports = {
                 if(user) {
                     if (req.body.password == user.password) {
                         console.log('User password matches');
+                        req.session.user = {
+                            first_name: user.first_name,
+                            _id: user._id
+                        };
                         req.session.userId = user._id;
                         res.json(user)
                     } else {
