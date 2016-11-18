@@ -14,7 +14,7 @@ var mongoose = require('mongoose'),
     reg  = new RegExp( ".js$", "i" ),
 
      // database information
-    dbURI  = 'mongodb://localhost/meanBelt';
+    dbURI  = 'mongodb://localhost/meanBeltExam';
 
 // Connect to the database
 mongoose.connect( dbURI );
