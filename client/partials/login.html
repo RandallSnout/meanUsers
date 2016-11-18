@@ -1,0 +1,50 @@
+<h2>Users Login/Reg</h2>
+<p class="error" ng-repeat="error in errors" ng-bind="error.message"></p>
+<div class="row">
+    <div class="three">
+        <h3>Login</h3>
+        <p class="error"></p>
+        <form class="funForm" ng-submit="login(user)">
+            <div class="formGroup">
+                <label>Email:</label>
+                <input type="email" ng-model="user.email">
+            </div>
+            <div class="formGroup">
+                <label>Password:</label>
+                <input type="password" ng-model="user.password">
+            </div>
+            <input class="button success right" type="submit" value="Login">
+        </form>
+    </div>
+    <div class="three">
+        <h3>Register</h3>
+        <form class="funForm" ng-submit="register(newUser)">
+            <div class="formGroup">
+                <label>First Name:</label>
+                <input type="text" ng-model="newUser.first_name">
+            </div>
+            <div class="formGroup">
+                <label>Last Name:</label>
+                <input type="text" ng-model="newUser.last_name">
+            </div>
+            <div class="formGroup">
+                <label>Email:</label>
+                <input type="email" ng-model="newUser.email">
+            </div>
+            <div class="formGroup">
+                <label>Password:</label>
+                <input type="password" ng-model="newUser.password">
+            </div>
+            <div class="formGroup">
+                <label>Confirm Password:</label>
+                <input type="password" ng-model="newUser.pw_check"><br />
+            </div>
+            <input class="button success right" type="submit" value="Register">
+        </form>
+    </div>
+    <div class="three">
+        <p>Justin Pfeiffer</p>
+        <p>justin@email.com</p>
+        <p>123</p>
+    </div>
+</div>

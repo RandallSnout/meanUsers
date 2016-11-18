@@ -1,0 +1,17 @@
+{
+  "name": "friends",
+  "authors": [
+    "“Randall <“pfeiffer.justin.pfeiffer@gmail.com”>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -1,0 +1,80 @@
+.button {
+    padding:5px 12px;
+    color:white;
+    border-radius:5px;
+    box-shadow: 2px 3px 3px grey;
+}
+.button:hover {
+    box-shadow: 5px 6px 3px grey;
+    padding:6px 13px;
+}
+.success {
+    background: green;
+    border:none;
+}
+.fail {
+    background: red;
+}
+.plain {
+    background: dodgerblue;
+}
+table {
+    border:1px solid silver;
+    border-collapse: collapse;
+}
+thead {
+    border-bottom: 1px solid #d0d0d0;
+    text-align: left;
+}
+td {
+    margin:7px;
+    width:100px;
+    height:50px;
+}
+.td_name {
+    width:125px;
+}
+.error {
+    color:red;
+}
+.formGroup{
+    clear: both;
+    margin:5px 0px;
+}
+.formGroup>input{
+    float:right;
+    width:50%;
+}
+.right{
+    float:right;
+}
+.left{
+    float:left;
+}
+.underBorder {
+    border-bottom:1px solid silver;
+}
+textarea {
+    width:100%;
+}
+.three {
+    width:27.5%;
+    margin:0 1%;
+    display:inline-block;
+    vertical-align:top ;
+}
+.four {
+    width:37.5%;
+    margin:0 1%;
+    display:inline-block;
+    vertical-align:top ;
+}
+.six {
+    width:57.5%;
+    margin:0 1%;
+    display:inline-block;
+    vertical-align:top ;
+}
+.offsetTwo{
+    margin-left:19%;
+}
