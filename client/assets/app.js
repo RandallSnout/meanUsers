@@ -22,6 +22,10 @@ app.config(function ($routeProvider, $httpProvider) {
             templateUrl: 'partials/home.html',
             controller:'usersController'
         })
+        .when('/user/:id', {
+            templateUrl: 'partials/user.html',
+            controller:'singleController'
+        })
         .otherwise({
             redirectTo: '/login'
         });

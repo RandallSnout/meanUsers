@@ -1,8 +1,41 @@
 <div class="row underBorder">
-    <div class="six">
+    <div class="Two">
+        <h2>Bucket List</h2>
+    </div>
+    <div class="Four">
+        <a href="" class="button plain">Home</a><a ng-click="logOut()" class="button fail">Log Out</a>
+    </div>
+</div>
+<div class="row">
+    <div class="Six">
         <h3>Hello <span ng-bind="user.first_name"></span></h3>
     </div>
-    <div class="four">
-        <a ng-click="logOut()" class="button fail right">Log Out</a>
-    </div>
+</div>
+<div class="row">
+    <p class="red" ng-repeat="error in errors" ng-bind="error.message"></p>
+    <form ng-submit="addBucket(post)">
+        <input placeholder="Title" ng-model="post.title" type="text">
+        <input placeholder="Description" ng-model="post.description" type="text">
+        <label>Tag another User(optional):</label>
+        <select ng-model="post.friend">
+            <option value="" selected disabled>Select User</option>
+            <option value="{{user._id}}" ng-repeat="user in users">{{user.first_name}} {{user.last_name}}</option>
+        </select>
+        <input type="submit" class="button success" value="Add to List">
+    </form>
+</div>
+<div class="row">
+    <h3>Before I die I want to..</h3>
+        <div class="row" ng-repeat="buck in buckets">
+            <!--normal check boxes bore me, mine is better-->
+            <form class="One" ng-submit="complete(buck._id)">
+                <input type="hidden" value="{{buck._id}}" ng-model="check.id">
+                <input type="submit" class="checkBox" value="{{buck.checked}}">
+            </form>
+            <p class="Nine"> {{buck._user.first_name}} | {{buck.title}} - {{buck.description}} - {{buck.createdAt| date:'MMM/dd/yyyy'}}</p>
+        </div>
+    <h3>List of other users(Click to view profile):</h3>
+        <ul>
+            <li ng-repeat="user in users"><a href="#/user/{{user._id}}">{{user.first_name}} {{user.last_name}}</a></li>
+        </ul>
 </div>

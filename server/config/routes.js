@@ -14,5 +14,11 @@ module.exports = function(app){
     app.post('/sessions/log', sessions.login);
     app.use(loginAuthentication);
     app.get('/users', users.show);
+    app.get('/usersAll', users.showUsers);
+    app.get('/bucketsMine', users.myBuckets);
+    app.get('/bucketsOther/:id', users.otherBuckets);
+    app.post('/bucket', users.addBucket);
+    app.get('/bucketCheck/:id', users.addCheck);
+    app.get('/person/:id', users.findOne);
     app.delete('/sessions/logout', sessions.logout);
 };

@@ -1,0 +1,14 @@
+<div class="row underBorder">
+    <div class="Two">
+        <h2>Bucket List</h2>
+    </div>
+    <div class="Four">
+        <a href="#/show" class="button plain">Home</a><a ng-click="logOut()" class="button fail">Log Out</a>
+    </div>
+</div>
+<h1>{{user.first_name}}'s Bucket List</h1>
+<div>
+<h3>Done:</h3>
+<p ng-repeat=" buck in buckets" ng-if="buck.checked"><span class="checkBox">{{buck.checked}}</span> {{buck._user.first_name}} | {{buck.title}} - {{buck.description}} - {{buck.createdAt| date:'MMM/dd/yyyy'}}</p>
+<h3>Pending:</h3>
+<p ng-repeat=" buck in buckets " ng-if="!buck.checked"><span class="checkBox">{{buck.checked}}</span> {{buck._user.first_name}} | {{buck.title}} - {{buck.description}} - {{buck.createdAt| date:'MMM/dd/yyyy'}}</p>

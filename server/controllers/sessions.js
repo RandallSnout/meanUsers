@@ -13,6 +13,7 @@ module.exports = {
             res.json(noMatch);
         } else {
             var user = new User(req.body);
+            console.log(req.body);
             user.save(function(err,user){
                 if (err){
                     res.json(err);

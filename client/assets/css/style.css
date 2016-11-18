@@ -14,27 +14,32 @@
 }
 .fail {
     background: red;
+    border:none;
 }
 .plain {
     background: dodgerblue;
+    border:none;
 }
 table {
     border:1px solid silver;
     border-collapse: collapse;
+    width:100%;
 }
 thead {
     border-bottom: 1px solid #d0d0d0;
     text-align: left;
 }
 td {
-    margin:7px;
-    width:100px;
     height:50px;
+    padding-left: 10px;
 }
 .td_name {
     width:125px;
 }
-.error {
+.green {
+    color:red;
+}
+.red {
     color:red;
 }
 .formGroup{
@@ -42,6 +47,7 @@ td {
     margin:5px 0px;
 }
 .formGroup>input{
+    border:1px solid silver;
     float:right;
     width:50%;
 }
@@ -53,28 +59,111 @@ td {
 }
 .underBorder {
     border-bottom:1px solid silver;
+    padding-bottom: 30px;
 }
 textarea {
-    width:100%;
+    width:99%;
+    border:1px solid silver;
 }
-.three {
+.container{
+    width:95%;
+    margin:0 auto;
+}
+.row {
+    clear: both;
+    margin-top:10px;
+}
+.One {
+    width:7.5%;
+    margin:0 1%;
+    display:inline-block;
+    vertical-align:top ;
+}
+.Two {
+    width:17.5%;
+    margin:0 1%;
+    display:inline-block;
+    vertical-align:top ;
+}
+.Three {
     width:27.5%;
     margin:0 1%;
     display:inline-block;
     vertical-align:top ;
 }
-.four {
+.Four {
     width:37.5%;
     margin:0 1%;
     display:inline-block;
     vertical-align:top ;
 }
-.six {
+.Five {
+    width:47.5%;
+    margin:0 1%;
+    display:inline-block;
+    vertical-align:top ;
+}
+.Six {
     width:57.5%;
     margin:0 1%;
     display:inline-block;
     vertical-align:top ;
 }
+.Seven {
+    width:67.5%;
+    margin:0 1%;
+    display:inline-block;
+    vertical-align:top ;
+}
+.Eight {
+    width:77.5%;
+    margin:0 1%;
+    display:inline-block;
+    vertical-align:top ;
+}
+.Nine {
+    width:87.5%;
+    margin:0 1%;
+    display:inline-block;
+    vertical-align:top ;
+}
+.Ten {
+    width:100%;
+}
+.offsetHalf{
+    margin-left:4%;
+}
+.offsetOne{
+    margin-left:8%;
+}
 .offsetTwo{
-    margin-left:19%;
+    margin-left:18%;
+}
+.offsetThree{
+    margin-left:28%;
+}
+.offsetFour{
+    margin-left:38%;
+}
+.offsetFive{
+    margin-left:48%;
+}
+.offsetSix{
+    margin-left:58%;
+}
+.offsetSeven{
+    margin-left:68%;
+}
+.offsetEight{
+    margin-left:78%;
+}
+.offsetNine{
+    margin-left:88%;
+}
+
+
+.checkBox {
+    padding:3px 5px;
+    background: none;
+    border:1px solid black;
 }
