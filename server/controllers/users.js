@@ -56,7 +56,7 @@ module.exports = {
     },
     otherBuckets: function(req,res){
         //your code here
-        Bucket.find({friend: req.params.id}).populate('_user').exec(function(err, result){
+        Bucket.find({friend: req.params.id} || {_user: req.params.id}).populate('_user').exec(function(err, result){
             console.log('controller bucket below');
             console.log(result);
             res.json(result);
