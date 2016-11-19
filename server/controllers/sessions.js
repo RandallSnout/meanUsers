@@ -44,8 +44,8 @@ module.exports = {
                         req.session.userId = user._id;
                         res.json(user)
                     } else {
-                        res.json(err);
                         noUser = {errors: {password: {message:"User does not exist, Please try again."}}};
+                        res.json(noUser);
                     }
                 } else {
                    noUser = {errors: {password: {message:"User does not exist, Please try again."}}};
