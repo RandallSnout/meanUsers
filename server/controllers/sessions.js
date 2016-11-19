@@ -43,7 +43,7 @@ module.exports = {
                         req.session.userId = user._id;
                         res.json(user)
                     } else {
-                        var wrongUser = {errors: {message:"User does not exist, Please try again."}};
+                        var wrongUser = {errors: "User does not exist, Please try again."};
                         res.json(wrongUser);
                     }
                 } else {
