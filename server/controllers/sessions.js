@@ -32,6 +32,7 @@ module.exports = {
     login: function(req,res) {
         console.log('server controller reached for login');
         console.log(req.body);
+        var noUser = {};
             User.findOne({email: req.body.email}).exec(function (err, user) {
                 if(user) {
                     if (req.body.password == user.password) {
@@ -44,9 +45,10 @@ module.exports = {
                         res.json(user)
                     } else {
                         res.json(err);
+                        noUser = {errors: {password: {message:"User does not exist, Please try again."}}};
                     }
                 } else {
-                    var noUser = {errors: {password: {message:"User does not exist, Please try again."}}};
+                   noUser = {errors: {password: {message:"User does not exist, Please try again."}}};
                     res.json(noUser);
                 }
             })
