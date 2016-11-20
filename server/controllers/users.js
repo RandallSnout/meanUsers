@@ -49,7 +49,7 @@ module.exports = {
     },
     myBuckets: function(req,res){
         //your code here
-        Bucket.find({friend: req.session.userId} || {_user: req.session.userId}) .populate('_user').exec(function(err, result){
+        Bucket.find({friend: req.session.userId.id} || {_user: req.session.userId}) .populate('_user').exec(function(err, result){
             console.log(result);
             res.json(result);
         })
