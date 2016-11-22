@@ -1,0 +1,26 @@
+<div class="row underBorder">
+    <div class="Six">
+        <a href="#/show" class="button plain">Home</a>
+    </div>
+    <div class="Four">
+        <a ng-click="logOut()" class="button fail right">Log Out</a>
+    </div>
+</div>
+<div class="row">
+    <h1>Add a Question.</h1>
+    <div class="Six offsetTwo">
+        <p class="red" ng-repeat="error in messageErrors" ng-bind="error.message"></p>
+    <form ng-submit="questionAsked(post)">
+        <div class="formGroup">
+            <label>Question:</label>
+            <textarea ng-model="post.question"></textarea>
+        </div>
+        <div class="formGroup">
+            <label>Description (optional):</label>
+            <textarea ng-model="post.description"></textarea>
+        </div>
+        <input class="button success right" type="submit" value="Submit">
+    </form>
+    <a href="#/show" class="button fail">Cancel</a>
+    </div>
+</div>

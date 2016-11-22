@@ -1,0 +1,24 @@
+<div class="row underBorder">
+    <div class="Six">
+        <a href="#/show" class="button plain">Home</a> | <a class="button success" href="#/answer/{{quest._id}}" >Answer the Question</a>
+    </div>
+    <div class="Four">
+        <a ng-click="logOut()" class="button fail right">Log Out</a>
+    </div>
+</div>
+<div class="row">
+    <div class="eight offsetOne">
+        <h1 ng-bind="quest.question"></h1>
+        <h3 ng-bind="quest.description"></h3>
+    </div>
+</div>
+<div class="row">
+    <div class="eight offsetOne">
+        <div class="Eight offsetOne underBorder" ng-repeat="a in question.answers | orderBy: '-likes.length' ">
+            <p ng-bind="a._user.first_name"></p>
+            <p ng-bind="a.answer"></p>
+            <p ng-bind="a.details"></p>
+            <p class="right">Likes: {{a.likes.length}} | <button class="button plain" ng-click="likeAnswer(a._id)">Like</button></p>
+        </div>
+    </div>
+</div>

@@ -13,13 +13,13 @@ module.exports = {
             res.json(noMatch);
         } else {
             var user = new User(req.body);
-            console.log(req.body);
             user.save(function(err,user){
                 if (err){
                     res.json(err);
                 }else{
                     req.session.user = {
                         first_name: user.first_name,
+                        last_name: user.last_name,
                         _id: user._id
                     };
                     req.session.userId = user._id;
@@ -36,14 +36,11 @@ module.exports = {
                 if(user) {
                     if (req.body.password == user.password) {
                         console.log('User password matches');
-                        req.session.user = {
-                            first_name: user.first_name,
-                            _id: user._id
-                        };
                         req.session.userId = user._id;
                         res.json(user)
                     } else {
-                        res.json(err);
+                        var wrongUser = {errors: {password: {message:"Password does not match, Please try again."}}};
+                        res.json(wrongUser);
                     }
                 } else {
                     var noUser = {errors: {password: {message:"User does not exist, Please try again."}}};

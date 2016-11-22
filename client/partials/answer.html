@@ -1,0 +1,32 @@
+<div class="row underBorder">
+    <div class="Six">
+        <a href="#/show" class="button plain">Home</a>
+        <a href="#/quest/{{quest._id}}" class="button plain">Back to Question</a>
+    </div>
+    <div class="Four">
+        <a ng-click="logOut()" class="button fail right">Log Out</a>
+    </div>
+</div>
+<div class="row">
+    <div class="eight offsetOne">
+        <h1 ng-bind="quest.question"></h1>
+        <h3 ng-bind="quest.description"></h3>
+    </div>
+</div>
+<div class="row">
+    <div class="Six offsetTwo">
+        <p class="red" ng-repeat="error in messageErrors" ng-bind="error.message"></p>
+        <form ng-submit="answered(answer, quest._id)">
+            <div class="formGroup">
+                <label>Answer:</label>
+                <textarea ng-model="answer.answer"></textarea>
+            </div>
+            <div class="formGroup">
+                <label>Supporting Details (optional):</label>
+                <textarea ng-model="answer.details"></textarea>
+            </div>
+            <input class="button success right" type="submit" value="Submit">
+        </form>
+        <a href="#/show" class="button fail">Cancel</a>
+    </div>
+</div>

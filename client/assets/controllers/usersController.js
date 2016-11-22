@@ -13,51 +13,67 @@ app.controller('usersController', ['$scope','userFactory', '$routeParams','$loca
     };
     show();
 
-    var allUsers = function(){
-        userFactory.showAll(function(returnedData){
+    var getQuestions = function(){
+        userFactory.getQs(function(returnedData){
             console.log(returnedData.data);
-            $scope.users = returnedData.data;
-            console.log($scope.users);
+            $scope.questions = returnedData.data;
+            console.log($scope.questions);
         });
     };
+    getQuestions();
 
-    allUsers();
-
-    var getBuckets = function(){
-        userFactory.getAll(function(returnedData){
-            console.log(returnedData.data);
-            $scope.buckets = returnedData.data;
-            console.log($scope.buckets);
-        });
-    };
-
-    getBuckets();
-
-    $scope.addBucket = function(post){
+    $scope.questionAsked = function(post){
+        console.log('users controller question asked');
         console.log(post);
-      userFactory.createBucket(post, function(data){
-          if(data.hasOwnProperty('errors')){
-              $scope.errors = data.errors;
-              console.log(data.errors);
-          } else {
-              console.log(data.data);
-              getBuckets();
-              $scope.post = {};
-          }
-      })
+        userFactory.createQuestion(post, function(data) {
+            if (data.hasOwnProperty('errors')) {
+                $scope.messageErrors = data.errors;
+                console.log(data.errors);
+            } else {
+                $location.url('/show');
+            }
+        })
     };
 
-    $scope.complete = function(itemId){
-        console.log('checked off controller');
-        console.log(itemId);
-        userFactory.markComplete(itemId);
-        getBuckets();
+    var getQuestion = function($routeParams){
+        userFactory.showQuestion($routeParams.id, function(returnedData){
+            $scope.quest = returnedData;
+            console.log(returnedData);
+        })
     };
+    getQuestion($routeParams);
+
+    $scope.answered = function(answer, questId){
+        userFactory.createAnswer(answer, questId, function(data) {
+            if (data.hasOwnProperty('errors')) {
+                $scope.messageErrors = data.errors;
+                console.log(data.errors);
+            } else {
+                $location.url('/show');
+            }
+        })
+    };
+
+    var getAnswers = function($routeParams){
+        userFactory.showAnswers($routeParams.id, function(returnedData){
+            $scope.question = returnedData;
+            console.log(returnedData);
+        })
+    };
+    getAnswers($routeParams);
 
     $scope.logOut = function(){
         userFactory.logout();
         $location.url('/');
-    }
+    };
+
+    $scope.likeAnswer = function(commID){
+        console.log('Controller likes');
+        userFactory.answerLike(commID, function(){
+            getQuestion($routeParams);
+            getAnswers($routeParams);
+        })
+    };
 
 
 }]);

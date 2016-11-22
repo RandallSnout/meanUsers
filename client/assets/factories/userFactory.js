@@ -37,46 +37,49 @@ app.factory('userFactory', ['$http', function($http) {
             });
         };
 
-        this.showOne = function(userId, callback){
-            $http.get('/person/'+userId).then(function(returned_data){
-                callback(returned_data);
-            });
-        };
-
-        this.showAll = function(callback){
-            $http.get('/usersAll').then(function(returned_data){
+        this.getQs = function(callback){
+            $http.get('/questions').then(function(returned_data){
                 user = returned_data;
                 callback(user);
             });
         };
 
-        this.getAll = function(callback){
-            $http.get('/bucketsMine').then(function(returned_data){
-                callback(returned_data);
+        this.createQuestion = function(post, callback){
+            console.log('question asked in factory');
+            console.log(post);
+            $http.post('/questions', post).then(function(returned_data){
+                if (typeof(callback) == 'function'){
+                    callback(returned_data.data);
+                }
+            })
+        };
+
+        this.showQuestion = function(questId, callback){
+            console.log(questId);
+            $http.get('/questions/'+questId).then(function(returned_data){
+                callback(returned_data.data);
             });
         };
 
-        this.getAllOther = function(userId, callback){
-            console.log('bucket factory');
-            $http.get('/bucketsOther/'+userId).then(function(returned_data){
-                callback(returned_data);
-            });
-        };
-
-        this.createBucket = function(post, callback){
-            console.log('create bucket factory');
-            $http.post('/bucket', post).then(function(returned_data){
+        this.createAnswer = function(answer, questId, callback){
+            $http.post('/answers/'+questId, answer).then(function(returned_data){
                 callback(returned_data.data);
             })
         };
 
-        this.markComplete = function(buckId){
-            console.log('checked off factory');
-            console.log(buckId);
-            $http.get('/bucketCheck/'+buckId);
+        this.showAnswers = function(questId, callback){
+            console.log(questId);
+            $http.get('/answers/'+questId).then(function(returned_data){
+                callback(returned_data.data);
+            });
         };
 
-
+        this.answerLike = function(answerID, callback){
+            console.log('factory likes');
+            $http.post('/answers/'+answerID+'/like').then(function(returned_data){
+                callback(returned_data.data);
+            })
+        }
 
     }
     console.log(new UserFactory());
